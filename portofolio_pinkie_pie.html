@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portofolio Nila Adzqia</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts: Quicksand for a bubbly, friendly Pinkie Pie vibe -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Tailwind Config for Custom Colors -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Quicksand', 'sans-serif'],
+                    },
+                    colors: {
+                        pinkie: {
+                            50: '#fdf2f8',
+                            100: '#fce7f3',
+                            200: '#fbcfe8',
+                            300: '#f9a8d4',
+                            400: '#f472b6',
+                            500: '#ec4899',
+                            600: '#db2777',
+                        }
+                    },
+                    animation: {
+                        'float': 'float 3s ease-in-out infinite',
+                        'bounce-slow': 'bounce 3s infinite',
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-10px)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* Custom styles for extra decorative elements */
+        body {
+            background-color: #fdf2f8; /* pinkie-50 */
+            background-image: radial-gradient(#fbcfe8 20%, transparent 20%), radial-gradient(#fbcfe8 20%, transparent 20%);
+            background-size: 40px 40px;
+            background-position: 0 0, 20px 20px;
+        }
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 192, 203, 0.5);
+        }
+        /* Crop the specific screenshot image nicely */
+        .hero-img-container img {
+            object-fit: cover;
+            object-position: center 15%; /* Focus on the face, adjusting for the video player UI */
+        }
+    </style>
+</head>
+<body class="text-gray-800 font-sans antialiased overflow-x-hidden">
+
+    <!-- Navbar -->
+    <nav class="fixed w-full z-50 glass-panel shadow-sm transition-all duration-300">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <div class="flex-shrink-0 flex items-center gap-2 cursor-pointer" onclick="window.scrollTo(0,0)">
+                    <i class="fas fa-heart text-pinkie-500 animate-pulse"></i>
+                    <span class="font-bold text-xl text-pinkie-600">Nila Adzqia</span>
+                </div>
+                <!-- Desktop Menu -->
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-6">
+                        <a href="#hero" class="hover:text-pinkie-500 text-gray-700 font-medium transition-colors">Beranda</a>
+                        <a href="#about" class="hover:text-pinkie-500 text-gray-700 font-medium transition-colors">Tentang Saya</a>
+                        <a href="#skills" class="hover:text-pinkie-500 text-gray-700 font-medium transition-colors">Keahlian</a>
+                        <a href="#projects" class="hover:text-pinkie-500 text-gray-700 font-medium transition-colors">Proyek</a>
+                        <a href="#contact" class="hover:text-pinkie-500 text-gray-700 font-medium transition-colors">Kontak</a>
+                    </div>
+                </div>
+                <!-- Mobile Menu Button -->
+                <div class="md:hidden">
+                    <button id="mobile-menu-btn" class="text-gray-700 hover:text-pinkie-500 focus:outline-none">
+                        <i class="fas fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- Mobile Menu (Hidden by default) -->
+        <div id="mobile-menu" class="hidden md:hidden glass-panel border-t border-pinkie-100">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3 text-center">
+                <a href="#hero" class="block px-3 py-2 text-gray-700 hover:bg-pinkie-100 rounded-md font-medium">Beranda</a>
+                <a href="#about" class="block px-3 py-2 text-gray-700 hover:bg-pinkie-100 rounded-md font-medium">Tentang Saya</a>
+                <a href="#skills" class="block px-3 py-2 text-gray-700 hover:bg-pinkie-100 rounded-md font-medium">Keahlian</a>
+                <a href="#projects" class="block px-3 py-2 text-gray-700 hover:bg-pinkie-100 rounded-md font-medium">Proyek</a>
+                <a href="#contact" class="block px-3 py-2 text-gray-700 hover:bg-pinkie-100 rounded-md font-medium">Kontak</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- SECTION 1: HERO -->
+    <section id="hero" class="min-h-screen flex items-center justify-center pt-20 pb-12 px-4 sm:px-6 lg:px-8 relative">
+        <!-- Decorative blobs -->
+        <div class="absolute top-20 left-10 w-32 h-32 bg-pinkie-300 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob"></div>
+        <div class="absolute top-40 right-10 w-40 h-40 bg-pinkie-200 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob animation-delay-2000"></div>
+
+        <div class="max-w-6xl w-full flex flex-col-reverse md:flex-row items-center gap-10 z-10 glass-panel p-8 md:p-12 rounded-3xl shadow-xl shadow-pinkie-200/50">
+            <div class="flex-1 text-center md:text-left">
+                <span class="inline-block py-1 px-3 rounded-full bg-pinkie-100 text-pinkie-600 text-sm font-semibold tracking-wider mb-4 border border-pinkie-200 shadow-sm">
+                    ✨ Portofolio Profesional
+                </span>
+                <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-800 mb-4 leading-tight">
+                    Hai, Saya <br><span class="text-pinkie-500">Nila Adzqia</span>
+                </h1>
+                <p class="text-lg md:text-xl text-gray-600 mb-8 leading-relaxed">
+                    "Hallo, selamat datang di website portofolio saya, website ini dibuat untuk menaruh seluruh project yang saya buat !"
+                </p>
+                <div class="flex justify-center md:justify-start gap-4">
+                    <a href="#projects" class="bg-pinkie-500 hover:bg-pinkie-600 text-white font-bold py-3 px-8 rounded-full shadow-lg shadow-pinkie-300 transform transition hover:-translate-y-1">
+                        Lihat Project 🎈
+                    </a>
+                    <a href="#contact" class="bg-white hover:bg-pinkie-50 text-pinkie-500 border-2 border-pinkie-300 font-bold py-3 px-8 rounded-full shadow-md transform transition hover:-translate-y-1">
+                        Hubungi Saya
+                    </a>
+                </div>
+            </div>
+            
+            <!-- Hero Image -->
+            <div class="flex-1 flex justify-center md:justify-end mb-8 md:mb-0 relative">
+                <div class="relative w-64 h-64 md:w-80 md:h-80 xl:w-96 xl:h-96">
+                    <!-- Background decorative circle -->
+                    <div class="absolute inset-0 bg-pinkie-300 rounded-full shadow-lg transform -translate-x-2 translate-y-4"></div>
+                    <!-- Image container -->
+                    <div class="relative w-full h-full rounded-full border-8 border-white shadow-xl overflow-hidden hero-img-container animate-float bg-white">
+                        <img src="IMG_20260921_153926_219_c8eab5.webp" alt="Foto Nila Adzqia" class="w-full h-full object-cover">
+                    </div>
+                    <!-- Cute decorative elements -->
+                    <div class="absolute -bottom-4 -right-4 bg-white p-3 rounded-full shadow-lg text-2xl animate-bounce-slow">
+                        🧁
+                    </div>
+                    <div class="absolute top-4 -left-4 bg-white p-2 rounded-full shadow-lg text-xl animate-bounce-slow" style="animation-delay: 1s;">
+                        🎀
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 2: ABOUT -->
+    <section id="about" class="py-20 px-4 sm:px-6 lg:px-8">
+        <div class="max-w-4xl mx-auto text-center glass-panel p-10 rounded-3xl shadow-lg border-2 border-dashed border-pinkie-300">
+            <h2 class="text-3xl md:text-4xl font-bold text-pinkie-600 mb-6 flex items-center justify-center gap-3">
+                <i class="fas fa-star text-pinkie-400"></i> Tentang Saya <i class="fas fa-star text-pinkie-400"></i>
+            </h2>
+            <div class="w-24 h-1 bg-pinkie-300 mx-auto mb-8 rounded-full"></div>
+            
+            <p class="text-lg text-gray-700 leading-relaxed mb-6">
+                Halo! Saya <strong>Nila Adzqia</strong>. Saat ini saya adalah seorang siswi di <strong>SMK CYBER MEDIA</strong>. 
+                Saya mengambil jurusan <strong>MPLB</strong> (Manajemen Perkantoran dan Layanan Bisnis).
+            </p>
+            <p class="text-lg text-gray-700 leading-relaxed">
+                Melalui jurusan ini, saya belajar banyak tentang bagaimana mengelola administrasi kantor, berkomunikasi secara profesional, dan memberikan layanan bisnis yang prima. Saya adalah pribadi yang ceria, teliti, dan selalu semangat untuk belajar hal-hal baru!
+            </p>
+        </div>
+    </section>
+
+    <!-- SECTION 3: SKILLS -->
+    <section id="skills" class="py-20 px-4 sm:px-6 lg:px-8 relative">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold text-pinkie-600 mb-4">Keahlian Saya 🎯</h2>
+                <p class="text-gray-600">Beberapa keterampilan yang saya kuasai di bidang Manajemen Perkantoran.</p>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+                <!-- Skill 1 -->
+                <div class="glass-panel p-6 rounded-2xl shadow-md hover:shadow-xl transition-all transform hover:-translate-y-2 border-b-4 border-blue-500">
+                    <div class="w-14 h-14 bg-blue-100 rounded-full flex items-center justify-center mb-4 text-blue-600 text-2xl">
+                        <i class="fas fa-file-word"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-2">Microsoft Word</h3>
+                    <p class="text-gray-600 text-sm">Mampu membuat, mengedit, dan memformat berbagai dokumen perkantoran dengan rapi.</p>
+                </div>
+                
+                <!-- Skill 2 -->
+                <div class="glass-panel p-6 rounded-2xl shadow-md hover:shadow-xl transition-all transform hover:-translate-y-2 border-b-4 border-green-500">
+                    <div class="w-14 h-14 bg-green-100 rounded-full flex items-center justify-center mb-4 text-green-600 text-2xl">
+                        <i class="fas fa-file-excel"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-2">Microsoft Excel</h3>
+                    <p class="text-gray-600 text-sm">Mampu mengelola data, menggunakan rumus, dan membuat tabel laporan keuangan dasar.</p>
+                </div>
+
+                <!-- Skill 3 -->
+                <div class="glass-panel p-6 rounded-2xl shadow-md hover:shadow-xl transition-all transform hover:-translate-y-2 border-b-4 border-orange-500">
+                    <div class="w-14 h-14 bg-orange-100 rounded-full flex items-center justify-center mb-4 text-orange-600 text-2xl">
+                        <i class="fas fa-file-powerpoint"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-2">Microsoft Powerpoint</h3>
+                    <p class="text-gray-600 text-sm">Merancang presentasi bisnis yang menarik, komunikatif, dan profesional.</p>
+                </div>
+
+                <!-- Skill 4 -->
+                <div class="glass-panel p-6 rounded-2xl shadow-md hover:shadow-xl transition-all transform hover:-translate-y-2 border-b-4 border-pinkie-500">
+                    <div class="w-14 h-14 bg-pinkie-100 rounded-full flex items-center justify-center mb-4 text-pinkie-600 text-2xl">
+                        <i class="fas fa-comments"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-2">Komunikasi Bahasa Indonesia</h3>
+                    <p class="text-gray-600 text-sm">Kemampuan berkomunikasi dengan baik, sopan, dan efektif baik lisan maupun tulisan.</p>
+                </div>
+
+                <!-- Skill 5 -->
+                <div class="glass-panel p-6 rounded-2xl shadow-md hover:shadow-xl transition-all transform hover:-translate-y-2 border-b-4 border-yellow-500">
+                    <div class="w-14 h-14 bg-yellow-100 rounded-full flex items-center justify-center mb-4 text-yellow-600 text-2xl">
+                        <i class="fas fa-folder-open"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-2">Manajemen Kearsipan</h3>
+                    <p class="text-gray-600 text-sm">Mampu mengelola dan menyimpan arsip dengan sesuai dan benar agar mudah ditemukan.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 4: PROJECTS -->
+    <section id="projects" class="py-20 px-4 sm:px-6 lg:px-8">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold text-pinkie-600 mb-4">Galeri Proyek 📁</h2>
+                <p class="text-gray-600">Beberapa tugas dan proyek yang sudah pernah saya kerjakan.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Project Card 1 -->
+                <div class="bg-white rounded-3xl overflow-hidden shadow-lg border border-pinkie-100 group">
+                    <div class="h-48 bg-pinkie-200 flex items-center justify-center group-hover:bg-pinkie-300 transition-colors">
+                        <i class="fas fa-box-archive text-5xl text-white"></i>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="font-bold text-xl mb-2 text-gray-800">Sistem Pengarsipan Dokumen</h3>
+                        <p class="text-gray-600 text-sm mb-4">Proyek simulasi menyortir, mencatat, dan menyimpan dokumen arsip perusahaan menggunakan sistem abjad dan tanggal.</p>
+                        <span class="inline-block bg-pinkie-100 text-pinkie-600 rounded-full px-3 py-1 text-xs font-semibold">Manajemen Kearsipan</span>
+                    </div>
+                </div>
+
+                <!-- Project Card 2 -->
+                <div class="bg-white rounded-3xl overflow-hidden shadow-lg border border-pinkie-100 group">
+                    <div class="h-48 bg-pinkie-200 flex items-center justify-center group-hover:bg-pinkie-300 transition-colors">
+                        <i class="fas fa-chart-pie text-5xl text-white"></i>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="font-bold text-xl mb-2 text-gray-800">Laporan Kas Kecil (Petty Cash)</h3>
+                        <p class="text-gray-600 text-sm mb-4">Pembuatan laporan pembukuan kas kecil bulanan menggunakan Microsoft Excel beserta grafik pengeluarannya.</p>
+                        <span class="inline-block bg-pinkie-100 text-pinkie-600 rounded-full px-3 py-1 text-xs font-semibold">Ms. Excel</span>
+                    </div>
+                </div>
+
+                <!-- Project Card 3 -->
+                <div class="bg-white rounded-3xl overflow-hidden shadow-lg border border-pinkie-100 group">
+                    <div class="h-48 bg-pinkie-200 flex items-center justify-center group-hover:bg-pinkie-300 transition-colors">
+                        <i class="fas fa-bullhorn text-5xl text-white"></i>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="font-bold text-xl mb-2 text-gray-800">Slide Pitching Produk</h3>
+                        <p class="text-gray-600 text-sm mb-4">Mendesain materi presentasi PowerPoint untuk penawaran produk baru bisnis layanan administrasi.</p>
+                        <span class="inline-block bg-pinkie-100 text-pinkie-600 rounded-full px-3 py-1 text-xs font-semibold">Ms. PowerPoint</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 5: CONTACT -->
+    <section id="contact" class="py-20 px-4 sm:px-6 lg:px-8">
+        <div class="max-w-4xl mx-auto bg-pinkie-500 rounded-[3rem] p-8 md:p-12 shadow-2xl relative overflow-hidden text-center text-white">
+            <!-- Decorative shapes in contact card -->
+            <div class="absolute top-0 right-0 -mt-10 -mr-10 w-40 h-40 bg-white opacity-10 rounded-full"></div>
+            <div class="absolute bottom-0 left-0 -mb-10 -ml-10 w-32 h-32 bg-white opacity-10 rounded-full"></div>
+            
+            <h2 class="text-3xl md:text-4xl font-bold mb-6 relative z-10">Ayo Berteman! 💌</h2>
+            <p class="mb-10 relative z-10 text-pinkie-100">Kunjungi sosial media saya untuk melihat berbagai aktivitas sehari-hari atau hubungi saya langsung.</p>
+            
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 relative z-10">
+                <!-- Instagram -->
+                <a href="https://instagram.com/prettysy.kiaa" target="_blank" class="bg-white/20 hover:bg-white/30 backdrop-blur-sm border border-white/30 rounded-2xl p-4 flex flex-col items-center justify-center transition-all hover:scale-105">
+                    <i class="fab fa-instagram text-3xl mb-2"></i>
+                    <span class="font-medium text-sm">@prettysy.kiaa</span>
+                </a>
+                
+                <!-- TikTok -->
+                <a href="https://tiktok.com/@nlalaluvs_" target="_blank" class="bg-white/20 hover:bg-white/30 backdrop-blur-sm border border-white/30 rounded-2xl p-4 flex flex-col items-center justify-center transition-all hover:scale-105">
+                    <i class="fab fa-tiktok text-3xl mb-2"></i>
+                    <span class="font-medium text-sm">@nlalaluvs_</span>
+                </a>
+
+                <!-- WhatsApp -->
+                <a href="https://wa.me/6285693092732" target="_blank" class="bg-white/20 hover:bg-white/30 backdrop-blur-sm border border-white/30 rounded-2xl p-4 flex flex-col items-center justify-center transition-all hover:scale-105">
+                    <i class="fab fa-whatsapp text-3xl mb-2"></i>
+                    <span class="font-medium text-sm">085693092732</span>
+                </a>
+
+                <!-- Email -->
+                <a href="mailto:nilaadzqia@gmail.com" class="bg-white/20 hover:bg-white/30 backdrop-blur-sm border border-white/30 rounded-2xl p-4 flex flex-col items-center justify-center transition-all hover:scale-105">
+                    <i class="fas fa-envelope text-3xl mb-2"></i>
+                    <span class="font-medium text-xs break-all">nilaadzqia@gmail.com</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 6: FOOTER -->
+    <footer id="footer" class="glass-panel border-t border-pinkie-200 pt-12 pb-8 px-4 mt-10">
+        <div class="max-w-6xl mx-auto flex flex-col items-center">
+            <!-- Footer Menu -->
+            <div class="flex flex-wrap justify-center gap-6 mb-8">
+                <a href="#hero" class="text-gray-600 hover:text-pinkie-500 font-medium transition-colors">Beranda</a>
+                <a href="#about" class="text-gray-600 hover:text-pinkie-500 font-medium transition-colors">Tentang Saya</a>
+                <a href="#skills" class="text-gray-600 hover:text-pinkie-500 font-medium transition-colors">Keahlian</a>
+                <a href="#projects" class="text-gray-600 hover:text-pinkie-500 font-medium transition-colors">Proyek</a>
+                <a href="#contact" class="text-gray-600 hover:text-pinkie-500 font-medium transition-colors">Kontak</a>
+            </div>
+            
+            <div class="w-full h-px bg-gradient-to-r from-transparent via-pinkie-300 to-transparent mb-8"></div>
+            
+            <!-- Copyright Text -->
+            <p class="text-gray-700 font-medium flex items-center gap-2">
+                dibuat dengan <i class="fas fa-heart text-pinkie-500 animate-pulse text-lg"></i> oleh <span class="font-bold text-pinkie-600">Nila Adzqia</span>
+            </p>
+        </div>
+    </footer>
+
+    <!-- JavaScript for Mobile Menu & Interactivity -->
+    <script>
+        // Mobile Menu Toggle
+        const btn = document.getElementById('mobile-menu-btn');
+        const menu = document.getElementById('mobile-menu');
+
+        btn.addEventListener('click', () => {
+            menu.classList.toggle('hidden');
+        });
+
+        // Close mobile menu when a link is clicked
+        const mobileLinks = menu.querySelectorAll('a');
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                menu.classList.add('hidden');
+            });
+        });
+    </script>
+</body>
+</html>
